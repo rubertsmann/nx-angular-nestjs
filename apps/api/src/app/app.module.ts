@@ -7,13 +7,9 @@ import { AppService } from './app.service';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mssql',
+      type: 'mongodb',
       host: 'localhost',
-      port: 3306,
-      username: 'sa',
-      password: 'test',
-      database: 'test',
-      entities: [],
+      port: 27017,
       synchronize: true,
     })
   ],
