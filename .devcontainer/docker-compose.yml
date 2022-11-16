@@ -1,35 +1,19 @@
 
 
-version: '3.7'
+version: '3'
 
-x-environment:
-  &default-environment
-  VARIANT: "16-bullseye"
-
-  INSTALL_MAVEN: "true"
-  NODE_VERSION: "lts/*"
-  ACCEPT_EULA: 1
-  MSSQL_SA_PASSWORD: <YourStrong!Passw0rd>
 services:
   app:
     build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
-    ports:
-      - 8081:8081
-    user: vscode
-    command: sleep infinity
-    networks:
-      - frontend
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - ../..:/workspaces:cached
+    network_mode: service:db
   db:
     image: "mcr.microsoft.com/azure-sql-edge"
-    environment: *default-environment
-    ports:
-      - 1444:1444
-    expose:
-      - 1444
-    networks:
-      - frontend
-networks:
-  frontend:
-    name: frontend
+    restart: unless-stopped
+    environment:
+      SA_PASSWORD: P@ssw0rd
+      ACCEPT_EULA: Y

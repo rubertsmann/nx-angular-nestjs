@@ -1,40 +1,49 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.158.0/containers/javascript-node
 {
-	"name": "nx-angular-nestjs",
+	"name": "C# (.NET) and MS SQL",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-//	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
+	// Features to add to the dev container. More info: https://containers.dev/implementors/features.
+	// "features": {},
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": { 
+				"mssql.connections": [
+					{
+						"server": "localhost,1433",
+						"database": "",
+						"authenticationType": "SqlLogin",
+						"user": "sa",
+						"password": "P@ssw0rd",
+						"emptyPasswordInput": false,
+						"savePassword": false,
+						"profileName": "mssql-container"
+					}
+				]
+			},
+			
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-dotnettools.csharp",
+				"ms-mssql.mssql"
+			]
+		}
 	},
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"angular.ng-template",
-		"orta.vscode-jest",
-		"firsttris.vscode-jest-runner",
-		"nrwl.angular-console",
-		"esbenp.prettier-vscode",
-		"editorconfig.editorconfig",
-		"bierner.markdown-mermaid",
-		"streetsidesoftware.code-spell-checker",
-		"eamodio.gitlens"
-	],
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	// "forwardPorts": [5000, 5001],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+	// postCreateCommand.sh parameters: $1=SA password, $2=dacpac path, $3=sql script(s) path
+	"postCreateCommand": "bash .devcontainer/mssql/postCreateCommand.sh 'P@ssw0rd' './bin/Debug/' './.devcontainer/mssql/'",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {}
+	}
 
-	// necessary to fetch aviatar packages
-	// "postCreateCommand": "npm install i --legacy-peer-deps && npm run start:full",
-
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "user"
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
