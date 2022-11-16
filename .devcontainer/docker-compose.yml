@@ -15,41 +15,15 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-#    environment:
-#      <<: *default-environment
-#      PORT: 8081
     ports:
       - 8081:8081
-#    volumes:
-#      - ..:/workspace
     user: vscode
     command: sleep infinity
     networks:
       - frontend
   db:
     image: "mcr.microsoft.com/azure-sql-edge"
-#    restart: unless-stopped
-#    volumes:
-#      - ..:/workspace
     environment: *default-environment
-#    command:
-#      - /bin/bash
-#      - -c
-#      - |
-#        /opt/mssql/bin/sqlservr &
-#        echo "Waiting for MS SQL to be available"
-#        /opt/mssql-tools/bin/sqlcmd -l 30 -S 127.0.0.1:1444 -h-1 -V1 -U sa -P $$MSSQL_SA_PASSWORD -Q "SET NOCOUNT ON SELECT \"YAY WE ARE UP\" , @@servername"
-#        is_up=$$?
-#        while [ $$is_up -ne 0 ] ; do
-#          echo -e $$(date)
-#          /opt/mssql-tools/bin/sqlcmd -l 30 -S 127.0.0.1:1444 -h-1 -V1 -U sa -P $$MSSQL_SA_PASSWORD -Q "SET NOCOUNT ON SELECT \"YAY WE ARE UP\" , @@servername"
-#          is_up=$$?
-#          sleep 5
-#        done
-#        for foo in /workspace/sql/*.sql
-#          do /opt/mssql-tools/bin/sqlcmd -U sa -P $$MSSQL_SA_PASSWORD -l 30 -e -i $$foo
-#        done
-#        sleep infinity
     ports:
       - 1444:1444
     expose:
