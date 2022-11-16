@@ -4,7 +4,7 @@
 	"name": "nx-angular-nestjs",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspace",
+//	"workspaceFolder": "/workspace",
 
 
 	// Set *default* container specific settings.json values on container create.
