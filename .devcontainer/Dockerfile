@@ -7,6 +7,13 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${VARIANT}
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 RUN sudo apt update && sudo apt install default-jre --no-install-recommends -y
+
+FROM mcr.microsoft.com/azure-sql-edge
+ENV ACCEPT_EULA=1
+ENV MSSQL_SA_PASSWORD=test
+EXPOSE 1433
+# COPY /sql/setup.sql /mnt/setup.sql
+
 # [Optional] Uncomment if you want to install an additional version of node using nvm
 # ARG EXTRA_NODE_VERSION=10
 # RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
