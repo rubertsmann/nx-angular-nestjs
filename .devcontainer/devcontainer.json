@@ -1,12 +1,10 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.158.0/containers/javascript-node
 {
-	"name": "Example Frontend",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 10, 12, 14
-		"args": { "VARIANT": "16-bullseye" }
-	},
+	"name": "nx-angular-nestjs",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
 
 
 	// Set *default* container specific settings.json values on container create.
@@ -35,8 +33,8 @@
 	// "postCreateCommand": "yarn install",
 
 	// necessary to fetch aviatar packages
-	"postCreateCommand": "npm install i --legacy-peer-deps && npm run start:full",
+	// "postCreateCommand": "npm install i --legacy-peer-deps && npm run start:full",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
+	"remoteUser": "vscode"
 }
