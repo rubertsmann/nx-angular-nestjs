@@ -55,6 +55,12 @@ Run `ng g @nrwl/angular:lib my-lib` to generate a library.
 
 Libraries are shareable across libraries and applications. They can be imported from `@betcha/mylib`.
 
+## Generate a publishable library
+
+Run `ng g @nrwl/angular:lib mylib --publishable --importPath @betcha/mylib` to generate a publishable
+library
+
+
 ## Development server
 
 Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.

@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@betcha/angular-remote-data": ["libs/angular-remote-data/src/index.ts"],
       "@betcha/api-interfaces": ["libs/api-interfaces/src/index.ts"]
     }
   },

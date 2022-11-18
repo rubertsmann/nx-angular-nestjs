@@ -1,0 +1,27 @@
+<ng-container *ngIf="isInitial(state)">
+	<ng-container *ngIf="isTemplate(initial)">
+		<ng-container *ngTemplateOutlet="$any(initial)"> </ng-container>
+	</ng-container>
+	<ng-container *ngIf="!isTemplate(initial)">{{ initial }}</ng-container>
+</ng-container>
+
+<ng-container *ngIf="isPending(state)">
+	<ng-container *ngIf="isTemplate(pending)">
+		<ng-container *ngTemplateOutlet="$any(pending)"> </ng-container>
+	</ng-container>
+	<ng-container *ngIf="!isTemplate(pending)">{{ pending }}</ng-container>
+</ng-container>
+
+<ng-container *ngIf="isSuccess(state)">
+	<ng-container *ngIf="isTemplate(success)">
+		<ng-container *ngTemplateOutlet="success; context: { $implicit: state.value }"> </ng-container>
+	</ng-container>
+	<ng-container *ngIf="!isTemplate(success)">{{ success }}</ng-container>
+</ng-container>
+
+<ng-container *ngIf="isFailure(state)">
+	<ng-container *ngIf="isTemplate(failure)">
+		<ng-container *ngTemplateOutlet="$any(failure); context: { $implicit: state.error }"> </ng-container>
+	</ng-container>
+	<ng-container *ngIf="!isTemplate(failure)">{{ failure }}</ng-container>
+</ng-container>

@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "angular-remote-data": "libs/angular-remote-data",
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
     "basic-project": "apps/basic-project",
