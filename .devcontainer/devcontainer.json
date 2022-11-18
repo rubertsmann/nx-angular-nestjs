@@ -1,32 +1,9 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.158.0/containers/javascript-node
 {
-	"name": "Example Frontend",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 10, 12, 14
-		"args": { "VARIANT": "16-bullseye" }
-	},
+	"name": "Node.js & TypeScript",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:16-bullseye"
 
-
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
-
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"angular.ng-template",
-		"orta.vscode-jest",
-		"firsttris.vscode-jest-runner",
-		"nrwl.angular-console",
-		"esbenp.prettier-vscode",
-		"editorconfig.editorconfig",
-		"bierner.markdown-mermaid",
-		"streetsidesoftware.code-spell-checker",
-		"eamodio.gitlens"
-	],
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
@@ -34,9 +11,9 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
 
-	// necessary to fetch aviatar packages
-	"postCreateCommand": "npm install i --legacy-peer-deps && npm run start:full",
+	// Configure tool-specific properties.
+	// "customizations": {},
 
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
