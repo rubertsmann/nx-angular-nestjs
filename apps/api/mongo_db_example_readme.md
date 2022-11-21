@@ -38,19 +38,22 @@ Requirement:
 Preparing the generated Projects:
 1. open package.json
 2. add to "scripts" ->
- ```"start:full": "nx run-many --target=serve --projects=* --parallel=2"```
+ ``` "start:full": "nx run-many --target=serve --projects=* --parallel=2" ```
 4. open terminal -> 
-    ```npm run start:full```
+    ``` npm run start:full ```
 5. Open app.component.html -> add the line "<div>Message: {{ hello$ | async | json }}</div>"
 6. Open app.component.ts -> add the line "hello$ = this.http.get<any>('/api/hello');" below export. -> add "constructor(private http: HttpClient) { }" Resolve imports
 7. Open app.module.ts -> add "HttpClientModule" to the import.
 8. Create new file "proxy.conf.json" in "frontend basefolder" and add ->
-  ```{
+``` 
+  {
     "/api": {
       "target": "http://localhost:3333",
       "secure": false
     }
-  }```
+  }
+```
+  
 8. Open project.json and add 
 ```
       "options": {
@@ -62,7 +65,7 @@ Preparing the generated Projects:
 
 ### Adding Mongo and Typeorm Support
 1. open package.json -> add
-  ```
+```
   depdencies -> 
   "@nestjs/typeorm": "9.0.0",
     "mongodb": "3.6.0",
@@ -72,14 +75,16 @@ Preparing the generated Projects:
 2. Copy the Repository Folder from this project https://github.com/nestjs/nest/tree/master/sample/13-mongo-typeorm
 3. Create a post()/get() similar to the default one, but connect it to the repository.
 4. Open app.module.ts and add
-  ```    TypeOrmModule.forRoot({
+  ```    
+  TypeOrmModule.forRoot({
       type: 'mongodb',
       host: 'localhost',
       database: 'test',
       entities: [Photo],
       synchronize: true,
     }),
-    PhotoModule,```
+    PhotoModule,
+```
   to the imports.
 5. Open the app.compontent.html and duplicate the get logic to point to the newly created endpoints.
 6. Now you have a crud ready app.
