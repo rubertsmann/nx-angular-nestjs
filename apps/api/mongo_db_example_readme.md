@@ -29,7 +29,11 @@ Requirements:
 1. Open Visual Studio Code
 3. open command window -> type -> create devcontainer -> chose node.js & mongo db default image (14-bullseye). https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node-mongo/.devcontainer/docker-compose.yml -> enter -> visual code now opens the newly created .devcontainer project.
 
-### NX angular nestjs project
+### NX < 15.0.0
+1. terminal
+2. npx create-nx-workspace@14.0.0 -> choose 'angular-nest'
+
+### NX >= 15.0.0 angular nestjs project
 Requirement:
 - setup devcontainer, open decontainer in visual studio code.
 1. terminal
