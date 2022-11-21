@@ -5,7 +5,7 @@ Why I decided to use Typeorm with Mongo.
 I decided to go with Typeorm because it supports mssql/mysql/mongodb. This approach is more flexible.
 Typeorm with the repository pattern is very close to spring with jpa/hibernate.
 
-## Docuementation and Resources
+## Documentation and Resources
 1. Typeorm: https://docs.nestjs.com/techniques/database
 2. NestJs Example Projects: https://github.com/nestjs/nest/tree/master/sample/13-mongo-typeorm
 3. https://nx.dev/angular-tutorial/01-create-application
@@ -20,9 +20,11 @@ Requirements:
 2. Visual Studio Code Installed with RemoteDevContainer 
 3. Docker installed
 
+
 1. Create folder
 2. git init
 3. cd into folder
+
 
 1. Open Visual Studio Code
 3. open command window -> type -> create devcontainer -> chose node.js & mongo db default image (14-bullseye). https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node-mongo/.devcontainer/docker-compose.yml -> enter -> visual code now opens the newly created .devcontainer project.
