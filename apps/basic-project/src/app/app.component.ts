@@ -9,5 +9,8 @@ import { Message } from '@betcha/api-interfaces';
 })
 export class AppComponent {
   hello$ = this.http.get<Message>('/api/hello');
+  mongo$ = this.http.get<Message>('/api/photo');
+  photo$ = this.http.post('/api/photo', {})
+
   constructor(private http: HttpClient) {}
 }
