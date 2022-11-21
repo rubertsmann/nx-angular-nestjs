@@ -15,9 +15,10 @@ export class PhotoService {
     return this.photoRepository.find();
   }
 
-  async create(photo: IPhoto): Promise<Photo> {
-    return this.photoRepository.create(
+  async save(photo: IPhoto): Promise<Photo> {
+    const photoCreated = this.photoRepository.save(
       photo
     )
+    return photoCreated
   }
 }

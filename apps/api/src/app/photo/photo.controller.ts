@@ -14,6 +14,6 @@ export class PhotoController {
 
   @Post()
   create(@Body() photo: IPhoto): Promise<Photo> {
-    return this.photoService.create(photo)
+    return this.photoService.save(photo)
   }
 }
