@@ -1,3 +1,4 @@
+import { IPhoto } from '@betcha/api-interfaces';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
@@ -14,14 +15,9 @@ export class PhotoService {
     return this.photoRepository.find();
   }
 
-  async create(): Promise<Photo> {
+  async create(photo: IPhoto): Promise<Photo> {
     return this.photoRepository.create(
-      {
-        description: "test",
-        filename: "fileNameTest",
-        isPublished: true,
-        name: "photoName"
-      }
+      photo
     )
   }
 }
