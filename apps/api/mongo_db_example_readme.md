@@ -37,12 +37,14 @@ Requirement:
 
 Preparing the generated Projects:
 1. open package.json
-2. add to "scripts" ->"start:full": "nx run-many --target=serve --projects=* --parallel=2"
-3. open terminal -> "npm run start:full"
-4. Open app.component.html -> add the line "<div>Message: {{ hello$ | async | json }}</div>"
-5. Open app.component.ts -> add the line "hello$ = this.http.get<any>('/api/hello');" below export. -> add "constructor(private http: HttpClient) { }" Resolve imports
-6. Open app.module.ts -> add "HttpClientModule" to the import.
-7. Create new file "proxy.conf.json" in "frontend basefolder" and add ->
+2. add to "scripts" ->
+ ```"start:full": "nx run-many --target=serve --projects=* --parallel=2"```
+4. open terminal -> 
+    ```npm run start:full```
+5. Open app.component.html -> add the line "<div>Message: {{ hello$ | async | json }}</div>"
+6. Open app.component.ts -> add the line "hello$ = this.http.get<any>('/api/hello');" below export. -> add "constructor(private http: HttpClient) { }" Resolve imports
+7. Open app.module.ts -> add "HttpClientModule" to the import.
+8. Create new file "proxy.conf.json" in "frontend basefolder" and add ->
   ```{
     "/api": {
       "target": "http://localhost:3333",
