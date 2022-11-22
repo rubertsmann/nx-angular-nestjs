@@ -31,7 +31,7 @@ Requirements:
 
 ### NX < 15.0.0
 1. terminal
-2. npx create-nx-workspace@14.0.0 -> choose 'angular-nest'
+2. npx create-nx-workspace@14.2.0 -> choose 'angular-nest'
 
 ### NX >= 15.0.0 angular nestjs project
 Requirement:
@@ -44,6 +44,7 @@ Requirement:
 Preparing the generated Projects:
 1. open package.json
 2. add to "scripts" ->
+ ``` "start:full": "nx run-many --target=serve --projects=api,applicationname --parallel=2" ```
  ``` "start:full": "nx run-many --target=serve --projects=* --parallel=2" ```
 4. open terminal -> 
     ``` npm run start:full ```
